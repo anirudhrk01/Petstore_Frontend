@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pet Store Frontend</title>
+    <!-- Include Tailwind CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <!-- Include custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="bg-gray-100">
+    <div class="container mx-auto p-4">
+        <h1 class="text-3xl font-bold mb-4">Pet Store Frontend</h1>
+
+        <!-- Functionality Selection -->
+        <div class="mb-8">
+            <h2 class="text-xl font-semibold mb-2">Select Functionality</h2>
+            <select id="functionality-select" class="border border-gray-300 px-2 py-1 rounded-md mr-2">
+                <option value="all_pets">Display All Pets</option>
+                <option value="add_pet">Add New Pet</option>
+                <option value="get_pet_by_id">Show Pet Details by ID</option>
+                <option value="delete_pet_by_id">Delete Pet by ID</option>
+                <option value="pets_by_status">Select Pets by Status</option>
+            </select>
+            <button onclick="performSelectedFunctionality()"
+                class="bg-blue-500 text-white px-4 py-2 rounded-md">Go</button>
+        </div>
+
+        <!-- Display All Pets -->
+        <div id="all-pets-section" style="display: none;">
+            <h2 class="text-xl font-semibold mb-2">All Pets</h2>
+            <div id="all-pets-content"></div>
+        </div>
+
+        <!-- Add New Pet -->
+        <div id="add-pet-section" style="display: none;">
+            <h2 class="text-xl font-semibold mb-2">Add New Pet</h2>
+            <form id="add-pet-form">
+                <!-- Add pet form fields -->
+                <div class="mb-4">
+                    <label for="name" class="block text-gray-700">Name:</label>
+                    <input type="text" id="name" name="name" class="border border-gray-300 px-2 py-1 rounded-md">
+                </div>
+                <div class="mb-4">
+                    <label for="category" class="block text-gray-700">Category:</label>
+                    <input type="text" id="category" name="category" class="border border-gray-300 px-2 py-1 rounded-md">
+                </div>
+                <div class="mb-4">
+                    <label for="status" class="block text-gray-700">Status:</label>
+                    <input type="text" id="status" name="status" class="border border-gray-300 px-2 py-1 rounded-md">
+                </div>
+                <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded-md">Add Pet</button>
+            </form>
+        </div>
+
+        <!-- Show Details of Specific Pet by ID -->
+        <div id="get-pet-by-id-section" style="display: none;">
+            <h2 class="text-xl font-semibold mb-2">Show Pet Details by ID</h2>
+            <form id="get-pet-form">
+                <!-- Get pet form fields -->
+                <div class="mb-4">
+                    <label for="pet-id" class="block text-gray-700">Pet ID:</label>
+                    <input type="text" id="pet-id" name="pet-id" class="border border-gray-300 px-2 py-1 rounded-md">
+                </div>
+                <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded-md">Get Pet</button>
+            </form>
+            <div id="get-pet-content"></div>
+        </div>
+
+        <!-- Delete Pet by ID -->
+        <div id="delete-pet-by-id-section" style="display: none;">
+            <h2 class="text-xl font-semibold mb-2">Delete Pet by ID</h2>
+            <form id="delete-pet-form">
+                <!-- Delete pet form fields -->
+                <div class="mb-4">
+                    <label for="delete-pet-id" class="block text-gray-700">Pet ID:</label>
+                    <input type="text" id="delete-pet-id" name="delete-pet-id" class="border border-gray-300 px-2 py-1 rounded-md">
+                </div>
+                <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded-md">Delete Pet</button>
+            </form>
+            <div id="delete-pet-message"></div>
+        </div>
+
+        <!-- Select Pets by Status -->
+        <div id="pets-by-status-section" style="display: none;">
+            <h2 class="text-xl font-semibold mb-2">Select Pets by Status</h2>
+            <form id="pets-by-status-form">
+                <!-- Pets by status form fields -->
+                <div class="mb-4">
+                    <label for="status-filter" class="block text-gray-700">Status:</label>
+                    <input type="text" id="status-filter" name="status-filter" class="border border-gray-300 px-2 py-1 rounded-md">
+                </div>
+                <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded-md">Filter</button>
+            </form>
+            <div id="pets-by-status-content"></div>
+        </div>
+    </div>
+
+    <!-- Include custom JavaScript -->
+    <script src="script.js"></script>
+</body>
+
+</html>
